@@ -72,13 +72,17 @@ src/
 ├── app/                    # Next.js App Router
 │   ├── layout.tsx         # Root layout with cyber theme
 │   ├── page.tsx           # Main dashboard page
+│   ├── simulation/        # ERGM simulation page
 │   └── globals.css        # Global styles and animations
 ├── components/            # React components
-│   ├── NetworkVisualization.tsx  # D3.js network graph
+│   ├── NetworkVisualization.tsx     # D3.js network graph
+│   ├── ThreeNetworkVisualization.tsx # Three.js 3D network
 │   ├── Dashboard.tsx      # Main analytics dashboard
 │   ├── Sidebar.tsx        # Navigation sidebar
 │   └── MatrixRain.tsx     # Background effects
 ├── lib/                   # Utility functions
+│   ├── ergm-simulation.ts # ERGM simulation engine
+│   └── analytics-data.ts  # Data generation
 ├── types/                 # TypeScript definitions
 └── data/                  # Sample data and generators
 ```
@@ -101,11 +105,18 @@ src/
 - [x] Skills gap analysis
 - [x] Workforce needs prediction
 
-### Phase 3: 3D Experience 📋
-- [ ] Three.js 3D network visualization
-- [ ] VR/AR compatibility
-- [ ] Immersive data exploration
-- [ ] Spatial relationship mapping
+### Phase 3: 3D Experience ✅
+- [x] Three.js 3D network visualizations
+- [x] Exponential Random Graph Modeling (ERGM) simulation
+- [x] Interactive 3D network with orbital controls
+- [x] Real-time network evolution animation
+- [x] Physics-based force-directed layout
+- [x] Advanced simulation parameters (homophily, clustering, preferential attachment)
+- [x] Live statistics tracking and visualization
+- [x] Time-based network dynamics with edge aging
+- [x] Department-based color coding in 3D space
+- [x] Configurable simulation speed and controls
+
 
 ### Phase 4: AI Integration 📋
 - [ ] Predictive analytics
@@ -115,11 +126,20 @@ src/
 
 ## 🎮 Interactive Controls
 
-### Network Visualization
+### Network Visualization (2D)
 - **Click**: Select node for detailed analysis
 - **Drag**: Move nodes to reorganize layout
 - **Scroll**: Zoom in/out of network
 - **Hover**: Preview node information
+
+### 3D Network Simulation
+- **Mouse**: Orbit around the network
+- **Scroll**: Zoom in/out of 3D space
+- **Click**: Select nodes for analysis
+- **Controls Panel**: Adjust simulation parameters in real-time
+- **Start/Pause**: Control simulation execution
+- **Reset**: Restart simulation with new parameters
+- **Speed Control**: Adjust simulation speed (0.1x to 3x)
 
 ### Dashboard Navigation
 - **Sidebar**: Switch between different views

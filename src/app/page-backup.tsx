@@ -60,9 +60,7 @@ export default function Home() {
     density: 0.3,
     homophily: 0.7,
     preferentialAttachment: 0.5,
-    clustering: 0.4,
-    growthMode: false,
-    growthRate: 0.5
+    clustering: 0.4
   })
 
   const handleStartSimulation = () => {
@@ -121,13 +119,13 @@ export default function Home() {
         </div>
       </motion.header>
 
-      <div className="flex min-h-[calc(100vh-120px)] relative z-10">
+      <div className="flex h-[calc(100vh-120px)] relative z-10">
         {/* Sidebar */}
         <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
         
         {/* Main Content */}
         <motion.div 
-          className="flex-1 p-6 overflow-y-auto flex flex-col"
+          className="flex-1 p-6 overflow-hidden flex flex-col"
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -184,22 +182,7 @@ export default function Home() {
                     
                     <div className="space-y-4">
                       <div>
-                        <label className="flex items-center space-x-2 mb-3">
-                          <input
-                            type="checkbox"
-                            checked={networkParams.growthMode}
-                            onChange={(e) => setNetworkParams({...networkParams, growthMode: e.target.checked})}
-                            className="form-checkbox h-4 w-4 text-neon-blue"
-                          />
-                          <span className="text-sm font-medium">Growth Mode</span>
-                        </label>
-                        <p className="text-xs text-gray-400 mb-2">Start with 0 nodes and grow over time</p>
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-medium mb-2">
-                          {networkParams.growthMode ? 'Target Nodes' : 'Nodes'}: {networkParams.nodes}
-                        </label>
+                        <label className="block text-sm font-medium mb-2">Nodes: {networkParams.nodes}</label>
                         <input
                           type="range"
                           min="20"
@@ -209,21 +192,6 @@ export default function Home() {
                           className="w-full h-2 bg-cyber-gray rounded-lg appearance-none cursor-pointer"
                         />
                       </div>
-
-                      {networkParams.growthMode && (
-                        <div>
-                          <label className="block text-sm font-medium mb-2">Growth Rate: {networkParams.growthRate.toFixed(2)}</label>
-                          <input
-                            type="range"
-                            min="0.1"
-                            max="2"
-                            step="0.1"
-                            value={networkParams.growthRate}
-                            onChange={(e) => setNetworkParams({...networkParams, growthRate: parseFloat(e.target.value)})}
-                            className="w-full h-2 bg-cyber-gray rounded-lg appearance-none cursor-pointer"
-                          />
-                        </div>
-                      )}
                       
                       <div>
                         <label className="block text-sm font-medium mb-2">Density: {networkParams.density.toFixed(2)}</label>
